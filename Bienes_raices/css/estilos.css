@@ -1,0 +1,60 @@
+/* header */
+/* nav */
+/* section */
+/* article */
+/* main */
+/* aside - cosas externas a la web */
+/* fouter */
+
+
+body {
+    position: relative;
+    height: 950px;
+}
+
+header {
+    background-color: black;
+    height: 10%;
+}
+
+nav {
+    height: 5%;
+    background-color: green;
+}
+
+.div-medio {
+    height: 75%;
+}
+
+aside {
+    background-color: salmon;
+    height: 100%;
+    width: 20%;
+    float: right;
+}
+
+main {
+    background-color: blue;
+    height: 100%;
+    width: 80%;
+    float: right;
+}
+
+section {
+    background-color: violet;
+    /* position: relative; */
+    margin: 10px;
+    height: 30%;
+    width: 98%;
+}
+
+article {
+    background-color: grey;
+    height: 25%;
+    margin: 5px 20px;
+}
+
+.pie {
+    background-color: purple;
+    height: 10%;
+}
