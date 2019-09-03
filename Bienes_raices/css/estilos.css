@@ -5,21 +5,42 @@
 /* main */
 /* aside - cosas externas a la web */
 /* fouter */
+/* ------------------ */
+/* nombre  -> por etiqueta */
+/* #nombre -> por id */
+/* .nombre -> por clase */
 
+* {
+    /* Esto seria un hack ... para que quede pegado en la posicion 0,0 de la pagina*/
+    margin: 0px;
+    padding: 0px;
+    border: 0;
+}
 
 body {
     position: relative;
-    height: 950px;
+    /* height: 2000px; */
+    
 }
 
 header {
     background-color: black;
     height: 10%;
+
 }
 
 nav {
     height: 5%;
     background-color: green;
+    
+}
+
+
+main {
+    background-color: blue;
+    height: 100%;
+    width: 80%;
+    /* float: right; */
 }
 
 .div-medio {
@@ -30,23 +51,18 @@ aside {
     background-color: salmon;
     height: 100%;
     width: 20%;
-    float: right;
+    /* float: right; */
 }
 
-main {
-    background-color: blue;
-    height: 100%;
-    width: 80%;
-    float: right;
-}
 
 section {
-    background-color: violet;
+    /* background-color: ; */
     /* position: relative; */
     margin: 10px;
     height: 30%;
-    width: 98%;
+    width: 50%;
 }
+
 
 article {
     background-color: grey;
@@ -54,7 +70,28 @@ article {
     margin: 5px 20px;
 }
 
-.pie {
+footer {
     background-color: purple;
     height: 10%;
 }
+
+/* ----------- */
+.icon {
+    float: left;
+    margin: 10px;
+    height: 30%;
+    width: 25%;
+}
+
+a:link{
+    background-color: black;
+    color: white;
+    padding: 2px 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color:blue;
+  }
