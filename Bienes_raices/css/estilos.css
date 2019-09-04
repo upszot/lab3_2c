@@ -10,88 +10,59 @@
 /* #nombre -> por id */
 /* .nombre -> por clase */
 
-* {
-    /* Esto seria un hack ... para que quede pegado en la posicion 0,0 de la pagina*/
-    margin: 0px;
-    padding: 0px;
-    border: 0;
-}
-
-body {
-    position: relative;
-    /* height: 2000px; */
-    
-}
-
-header {
-    background-color: black;
-    height: 10%;
+body{
+    line-height: 2;
+    font-family: 'Lato', sans-serif;
 
 }
 
-nav {
-    height: 5%;
-    background-color: green;
-    
+.site-header{
+    background: url("../img/header.jpg");
+    height: 100vh;
+    background-position:  center center;
+    background-size: cover;
+
 }
 
-
-main {
-    background-color: blue;
+.contenido-header
+{
     height: 100%;
-    width: 80%;
-    /* float: right; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.div-medio {
-    height: 75%;
-}
-
-aside {
-    background-color: salmon;
-    height: 100%;
-    width: 20%;
-    /* float: right; */
-}
-
-
-section {
-    /* background-color: ; */
-    /* position: relative; */
-    margin: 10px;
-    height: 30%;
-    width: 50%;
-}
-
-
-article {
-    background-color: grey;
-    height: 25%;
-    margin: 5px 20px;
-}
-
-footer {
-    background-color: purple;
-    height: 10%;
-}
-
-/* ----------- */
-.icon {
-    float: left;
-    margin: 10px;
-    height: 30%;
-    width: 25%;
-}
-
-a:link{
-    background-color: black;
+.site-header h1{
     color: white;
-    padding: 2px 14px 25px;
-    text-align: center; 
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  a:hover, a:active {
-    background-color:blue;
-  }
+    padding-bottom: 30px;
+    max-width: 600px;
+}
+
+.barra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* rem -> aproximadamente 32px */
+    padding: 2rem;
+}
+
+/*  .navegacion a  -> clase navegacion y  links */
+.navegacion a{   
+    /* quita el tachado que tiene el enlace */
+    text-decoration: none; 
+    color: white;
+    margin-right: 10px;
+}
+
+.navegacion a :last-of-type{
+    /* quitar el margin-rigth del ultimo link */
+    margin: 0px;
+}
+.navegacion a:hover{
+    /* cuando le pasas por arriba */
+    color: green;
+}
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;
+}
