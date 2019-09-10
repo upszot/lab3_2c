@@ -10,6 +10,16 @@
 /* #nombre -> por id */
 /* .nombre -> por clase */
 
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+  }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body{
     line-height: 2;
     font-family: 'Lato', sans-serif;
@@ -74,7 +84,8 @@ body{
 .icono{
     flex-basis: calc(33.3% - 10px);
     text-align: center;
-
+    padding-left: 10px;
+    padding-right:  10px;
 }
 
 .icono h3, .icono p {
@@ -87,5 +98,77 @@ body{
 }
 
 .titulo-nosotros{
+    text-align: center;    
+}
+
+.titulo-nosotros h2{
+    font-weight: 300;
+}
+.contenedor-anuncios{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor-anuncios img{
+    width: 100%;
+}
+
+.anuncio{
+    flex-basis: calc(33.3% - 10px);
+    border: 1px solid grey;
+    background-color: #f5f5f5;
+    margin-bottom: 30px
+}
+
+.contendido-anmuncio{
+    padding: 40px 20px;
+    
+}
+.contendido-anmuncio h3{
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+.precio{
+    color: #71b100;
+}
+
+.boton  {
+    
+    /* border: none; */
+    color: white;
+    padding: 15px 30px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; 
+}
+
+.boton-naranja{
+    background-color: #E08709;
+}
+
+.boton-verde{
+    background-color: green;
+}
+.comodidades{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    flex:1;
+}
+
+.comodidades li{
+    display: flex;   
+}
+
+.comodidades li img{
+    margin-right: 20px;
+}
+
+.contenedor-ver-todas{
+    display: flex;
+    justify-content: flex-end;
 }
