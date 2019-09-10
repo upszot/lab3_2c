@@ -66,3 +66,11 @@ body{
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.contenedor-iconos{
+    display: flex;
+}
+
+.icono{
+    flex-basis: calc(33.3% - 10px);
+}
