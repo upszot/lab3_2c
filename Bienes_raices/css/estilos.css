@@ -120,6 +120,11 @@ body{
     margin-bottom: 30px
 }
 
+.anuncio a{
+    margin: 0 auto;
+
+}
+
 .contendido-anmuncio{
     padding: 40px 20px;
     
@@ -127,6 +132,7 @@ body{
 .contendido-anmuncio h3{
     font-size: 32px;
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .precio{
@@ -137,12 +143,14 @@ body{
     
     /* border: none; */
     color: white;
-    padding: 15px 30px;
+    padding: 10px 25px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    /* display: inline-block; */
+    display: block;
     font-size: 16px;
-    margin: 4px 2px;
+    width: 250px;
+    /* margin: 4px 2px; */
     cursor: pointer; 
 }
 
