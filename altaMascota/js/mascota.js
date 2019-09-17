@@ -15,3 +15,5 @@ function Mascota(nombre, edad, tipo, castrado, vacunado, desparasitado, alimento
 }
 
 let m1=new Mascota("bobby",3,"perro",true,false,true,"carne");
+
+console.log(m1.toString());
