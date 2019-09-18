@@ -1,3 +1,5 @@
+let mascotas=[];
+
 function Mascota(nombre, edad, tipo, castrado, vacunado, desparasitado, alimento)
 {
     this.nombre=nombre;
@@ -10,7 +12,8 @@ function Mascota(nombre, edad, tipo, castrado, vacunado, desparasitado, alimento
 
     Mascota.prototype.toString=function(){
         
-        return `Hola soy $(this.nombre) y tengo $(this.edad)`;
+         return `Hola soy $(this.nombre) y tengo $(this.edad)`;
+
     }
 }
 
