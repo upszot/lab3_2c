@@ -1,0 +1,1 @@
+copiar dentro de hdoc toda la carpeta ajax
