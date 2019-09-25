@@ -14,41 +14,43 @@ function TraerTexto()
         let info= document.getElementById('info');
         
         if(xhr.readyState==4)
-        //valores del readystate
-        //0 
-        //1 envio peticion
-        //2 ???
-        //3 una parte de la respuesta
-        //4 ya esta la respuesta
         {// ya llego la respuesta.
+            //valores del readystate
+            //0 
+            //1 envio peticion
+            //2 ???
+            //3 una parte de la respuesta
+            //4 ya esta la respuesta
             if(xhr.status==200)
             {//200 -> OK 
                 // 4xx -> cosas que no se encontraron (404 Not found) 
                 // 5xx -> problemas con el servidor
                 
                 //aca va el codigo que maneja la peticion cuando todo esta OK
-                // info.innerText=xhr.responseText;
-                setTimeout(()=>{
-                    info.innerText = xhr.responseText;
-
-                },3000);
+                setTimeout(() => {
+                    let persona=JSON.parse(xhr.responseText);                    
+                     info.innerText= `Nombre: ${persona.nombre} Apellido: ${persona.apellido} Edad: ${persona.edad}`;
+                     clearTimeout(tiempo);
+                }, 3000);
             }
             else
             {
-                console.log(`Error: ".${xhr.status} - ${xhr.statusText}`);
+                console.log(`Error: ${xhr.status} - ${xhr.statusText}`);
             }
         }
         else
         {// todavia no termino de traer la info... pongo un spiner
-            // info.appendChild(ponerSpinner()); //mientras no responde positivo muestra manejador
-            info.innerHTML = '<img src="./imagenes/spinner.gif" alt="spinner" />';
-
+            info.appendChild(ponerSpinner()); //mientras no responde positivo muestra manejador
         }
     }
     //recibe 3 argumentos, metodo de envio, url, que sea asincrono (true)
-    xhr.open('GET','./documento.txt', true);
+    xhr.open('GET','./persona.json', true);
     xhr.send();
 
+    var tiempo=setTimeout(() => {
+        xhr.abort();
+        info.inneerHTML= "servidor ocupado intete mas tarde";
+    }, 4000);
 }
 
 function ponerSpinner() {
