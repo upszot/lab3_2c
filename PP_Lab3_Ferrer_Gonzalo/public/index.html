@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/Anuncio.js"></script>
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/index.js"></script>
+    <title>Bienes Raices</title>
+</head>
+<body>
+    
+    <form action="#">
+        <fieldset>
+            <legend>Datos Anuncio</legend>
+            <div>
+                <label for="id" name=idAnuncio id=lblidAnuncio hidden>idAnuncio</label>
+                <input type="text" id="idAnuncio" hidden>
+            </div>
+            <div>
+                <label for="titulo">titulo</label>
+                <input type="text" id="titulo" name=titulo>
+            </div>
+            <div>
+                <label for="descripcion">descripcion</label>
+                <input type="text" id="descripcion" name=descripcion>
+            </div>
+            <div>
+                <label for="num_dormitorio">num_dormitorio</label>
+                <input type="number" id="num_dormitorio" name=num_dormitorio>
+            </div>
+            <div>
+                <label for="num_estacionamiento">num_estacionamiento</label>
+                <input type="number" id="num_estacionamiento" name=num_estacionamiento>
+            </div>
+            <div>
+                <label for="num_wc">num_wc</label>
+                <input type="number" id="num_wc" name=num_wc>
+            </div>
+            <div>
+                <label for="precio">precio</label>
+                <input type="text" id="precio" name=precio>
+            </div>
+            <div>
+                <!-- <label for="transaccion">transaccion</label> -->
+                <legend>Transaccion</legend>
+                <div>
+                    <label for="rdAlquiler">Alquiler</label>
+                    <input type="radio" name="transaccion" id="rdAlquiler" value="Alquiler" checked>
+                    <label for="rdVenta">Venta</label>
+                    <input type="radio" name="transaccion" id="rdVenta" value="Venta">           
+                </div>
+            </div>
+            <div>
+                <button type="submit" name=crearModificar id=btncrearModificar>Alta</button>
+                <button id=btnBorrar  name=Borrar hidden>Borrar</button>
+            </div>
+        </fieldset>
+    </form>
+    <div id="divTabla"></div>
+</body>
+</html>
