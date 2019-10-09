@@ -7,7 +7,7 @@ window.addEventListener("load", inicializarManejadores);
 
 function inicializarManejadores() {
     frm = document.forms[0];    
-    frm.addEventListener('submit', manejadorSubmit, false);
+    frm.addEventListener('submit', manejadorSubmit);
     document.getElementById('btnBorrar').addEventListener('click',borrarAnuncio);
     
     cargarDatos();
@@ -24,7 +24,7 @@ function manejadorSubmit(e)
 function manejadorModificar(e) 
 {
     e.preventDefault();
-    let anuncio= obtenerAnuncio(e.target,false);
+    let anuncio= obtenerAnuncio(e.target,true);
 //    console.log(anuncio);
     modificarAnuncio(anuncio);        
 }
@@ -79,7 +79,7 @@ function borrarAnuncio()
         {            
             cargarDatos();   
             limpiarvalues(); 
-            frm.removerEventListener('submit',manejadorModificar);
+            frm.removeEventListener('submit',manejadorModificar);
             frm.addEventListener('submit',manejadorSubmit);
         }       
     };
@@ -91,33 +91,32 @@ function borrarAnuncio()
 }
 
 function setvalues(e)
-{
+{//id,titulo,transaccion,descripcion,precio,num_wc,num_estacionamiento,num_dormitorio;
     let tr=e.target.parentElement;
     let nodos=tr.childNodes;
-
-    document.getElementById("idAnuncio").value=nodo[0].innerText;
+    document.getElementById("idAnuncio").value=nodos[0].innerText;
     document.getElementById("idAnuncio").hidden=false;
     document.getElementById("lblidAnuncio").hidden=false;
     
-    document.getElementById("titulo").value=nodo[1].innerText;
-
-    if(nodo[2].innerHTML=='Alquiler')
+    document.getElementById("titulo").value=nodos[1].innerText;
+    
+    if(nodos[2].innerHTML=='Alquiler')
     {
-        document.getElementById("Alquiler").checked=true;
+        document.getElementById("rdAlquiler").checked=true;
+    } else {
+        document.getElementById("rdVenta").checked=true;
     }
-    else
-    {
-        document.getElementById("Venta").checked=true;
-    }
+    
+    document.getElementById("descripcion").value=nodos[3].innerText;
+    document.getElementById("precio").value=nodos[4].innerText;
+    document.getElementById("num_wc").value=nodos[5].innerText;
+    document.getElementById("num_estacionamiento").value=nodos[6].innerText;
+    document.getElementById("num_dormitorio").value=nodos[7].innerText;
 
-    document.getElementById("descripcion").value=nodo[3].innerText;
-    document.getElementById("num_dormitorio").value=nodo[3].innerText;
-    document.getElementById("num_estacionamiento").value=nodo[3].innerText;
-    document.getElementById("num_wc").value=nodo[3].innerText;
-    document.getElementById("precio").value=nodo[3].innerText;
-
-    frm.removerEventListener('submit',manejadorSubmit);
-    frm.addEventListener('submit',manejadorModificar);
+    document.getElementById("btncrearModificar").innerText = "Modificar";
+    document.getElementById("btnBorrar").hidden = false;
+    frm.removeEventListener('submit',manejadorSubmit);
+    frm.addEventListener('submit',manejadorModificar);    
 }
 
 function limpiarvalues()

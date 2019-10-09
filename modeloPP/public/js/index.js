@@ -113,8 +113,8 @@ function setValues(e) {
     let nodos = tr.childNodes;
     document.getElementById("idAnuncio").value = nodos[0].innerText;
     document.getElementById("idAnuncio").hidden = false;
-
     document.getElementById("lblId").hidden = false;
+
     document.getElementById("titulo").value = nodos[1].innerText;
     if (nodos[2].innerHTML == "Venta") {
         document.getElementById("transaccionVenta").checked = true;
