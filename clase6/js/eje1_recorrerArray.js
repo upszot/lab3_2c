@@ -25,7 +25,15 @@ function ejem3()
 {
     let array=["juan","ana",true,23,[1,2,3],{nombre:"jorge,edad:30"}];
     console.log("Ejemplo 3");
-    array.forEach( elemento =>  console.log(elemento) );
-    
-
+    array.forEach( elemento =>  console.log(elemento) );   
 }
+
+function ejem3bis()
+{
+    let array=["juan","ana",true,23,[1,2,3],{nombre:"jorge,edad:30"}];
+    console.log("Ejemplo 3");
+    array.forEach(function (algo){
+        console.log(algo);
+    } );   
+}
+
