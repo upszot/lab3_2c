@@ -353,12 +353,10 @@ function ejem21()
         {nombre:"juan4" , edad:40 , sexo: "m"},
     ];
     
-
-    let sinRepetir2=[...new Set(numeros)];
-    console.log(sinRepetir2);
     
     //agrego un nuevo metodo al prototipo de los array
-    Array.prototype.unique=(arr)=> [...new Set(this)];
-    console.log(sinRepetir2);    
+    Array.prototype.unique=function (){return [...new Set(this)]};
+
+    console.log(numeros.unique());    
 }
 
