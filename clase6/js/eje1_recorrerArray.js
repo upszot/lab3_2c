@@ -1,18 +1,22 @@
-//window.addEventListener('load', ejem1);
-window.addEventListener('load', ejem21);
-
 let frm;
-//window.addEventListener('submit',mostrar);
+
+window.addEventListener('load', ()=>{
+    frm = document.forms[0];  
+    frm.addEventListener('submit',mostrar);  
+});
+//window.addEventListener('load', ejem21);
+
+
 
 function mostrar()
 {
-    frm = document.forms[0];        
+        
     let nro;
 
     nro=document.getElementById('Ejemplo').value;
     console.log ("Ejemplo a mostrar: " . nro);
-    a='ejem';
-    a+=nro;
+    a='ejem' + nro;
+    
     console.log("--------");
     console.log(a);
     
@@ -20,6 +24,18 @@ function mostrar()
     funcionAllamar(a);
     
 }
+let objFunciones = 
+{
+   ejem1 : function(){
+       console.log('funcion1');
+   },
+   ejem2 : function(){
+       console.log('funcion2');
+   },
+};
+
+objFunciones[a]();
+
 
 function funcionAllamar(funcion) 
 {   
