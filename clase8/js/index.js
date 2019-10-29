@@ -6,18 +6,53 @@ console.log(selPaises);
 */
 
 window.addEventListener('load',function(){
-    selPaises = document.getElementById("selPaises");
-    selCiudades = document.getElementById("selCiudades");
+    selPaises = document.getElementById('selPaises');
+    selCiudades = document.getElementById('selCiudades');
+
+    cargarSelect(selPaises,obtenerPaises(datos));
+    cargarSelect(selCiudades,obtenerCiudades(datos,selPaises.value));
+    
+    selPaises.addEventListener('change',e=>{        
+        cargarSelect(selCiudades,obtenerCiudades(datos,selPaises.value));        
+    });
 });
 
-function cargarPais(array)
+function obtenerPaises(array)
 {
+    //map recibe -> valor,indice,array
+    // let paises=array.map(function(element){
+    //     return element.pais;
+    // });
 
+    //Version archicada
+    // let paises=array.map((element)=>{
+    //     return element.pais;
+    // });
+
+    //version achicada 2
+    // let paises=array.map(element=>{
+    //     return element.pais;
+    // });
+
+    //version achicada 3 (pq tiene 1 solo return)
+    let paises=array.map(element=> element.pais)
+    .unique()
+    .sort();
+
+    console.log(paises);
 }
 
-function cargarCiudades(array,pais)
+function obtenerCiudades(array,pais)
 {
+    // let ciudades= array.filter(function (element){
+    //     return element.pais===pais;
+    // } );
 
+    return array.filter(element=>element.pais===pais)
+    .map(element=>element.ciudad)
+    .unique()
+    .sort();
+ 
 }
 
 /***
@@ -27,6 +62,7 @@ function cargarCiudades(array,pais)
  */
 function cargarSelect(sel,array)
 {
+    //selCiudades.opcion.length=0;
     array.array.forEach(element => {
         let opcion = document.createElement('option');
         opcion.setAttribute('value',element);
@@ -35,4 +71,16 @@ function cargarSelect(sel,array)
         sel.appendChild(opcion);
     });
 
+}
+
+Array.prototype.unique = function(){
+    return [...new Set(this)];
+}
+
+function limpiarSelect (sel){
+    sel.opcion.length=0;
+
+    while(sel.hasChildNodes()){
+        
+    }
 }
