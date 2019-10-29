@@ -28,7 +28,10 @@ function cargarCiudades(array,pais)
 function cargarSelect(sel,array)
 {
     array.array.forEach(element => {
-        
+        let opcion = document.createElement('option');
+        opcion.setAttribute('value',element);
+        let texto=document.createTextNode(element);
+        opcion.appendChild(texto);
     });
 
 }
