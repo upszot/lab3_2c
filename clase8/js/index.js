@@ -9,3 +9,17 @@ window.addEventListener('load',function(){
     selPaises = document.getElementById("selPaises");
     selCiudades = document.getElementById("selCiudades");
 });
+
+function cargarPais(array)
+{
+
+}
+
+function cargarCiudades(array,pais)
+{
+
+}
+
+function cargarSelect(sel,array){
+
+}
