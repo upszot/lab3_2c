@@ -20,6 +20,15 @@ function cargarCiudades(array,pais)
 
 }
 
-function cargarSelect(sel,array){
+/***
+ * Parametros
+ * sel = select donde cargar datos
+ * array=  array de string de datos a cargar
+ */
+function cargarSelect(sel,array)
+{
+    array.array.forEach(element => {
+        
+    });
 
 }
