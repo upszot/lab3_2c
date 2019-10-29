@@ -32,6 +32,7 @@ function cargarSelect(sel,array)
         opcion.setAttribute('value',element);
         let texto=document.createTextNode(element);
         opcion.appendChild(texto);
+        sel.appendChild(opcion);
     });
 
 }
