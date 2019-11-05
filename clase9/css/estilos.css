@@ -1,0 +1,24 @@
+.borde1
+{
+    background-color: #bbbb;
+    height: 50px;
+    border: 1px solid black;
+}
+.borde2
+{
+    background-color: rgba(241, 245, 7, 0.986);
+    border: 1px solid black;
+    height: 50px;
+}
+.borde3
+{
+    background-color: rgba(28, 30, 190, 0.867);
+    border: 1px solid black;
+    height: 50px;
+}
+.borde4
+{
+    background-color: rgba(10, 233, 58, 0.933);
+    height: 50px;
+    border: 1px solid black;
+}
