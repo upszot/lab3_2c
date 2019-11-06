@@ -24,7 +24,7 @@ function manejadorModificar(e) {
 function obtenerAnuncio(frm, tieneId) {
      var datos=new Array();
     console.log(frm.elements);
-
+    
     for (element of frm.elements) {
         switch (element.name) {
             case "titulo":
