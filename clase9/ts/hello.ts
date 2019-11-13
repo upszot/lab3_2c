@@ -109,3 +109,80 @@ let miFuncion:iFuncDosNumeros;
 miFuncion=(num1:number,num2:number)=>num1+num2;
 
 console.log(miFuncion(1,5));
+
+class Avenger2 implements IHeroe{
+    nombre:string="unAvenger2";
+    constructor(nombre:string){
+        this.nombre=nombre;
+    }
+}
+
+let av2=new Avenger2("Hulk");
+
+console.log("clase Avenger2: " + av2.nombre);
+
+class Avenger3 {
+    private _nombre:string="unAvenger3";
+    private _edad:number=0;
+    constructor(nombre:string){
+        this._nombre=nombre;
+
+    }
+    get edad():number{return this._edad;}
+    set edad(e:number){this._edad=e;}
+    public mostrar=()=>this._nombre;
+}
+
+let av3=new Avenger3("Iroman");
+console.log("clase 3 avenger: " + av3.mostrar());
+av3.edad=34;
+console.log("clase 3 avenger: " + av3.edad);
+
+
+class Xmen{
+    static nomnbre_De_clase="Xmen";
+}
+
+console.log("Atributo statico: " + Xmen.nomnbre_De_clase);
+
+
+//herencia
+class AvengerHeredado extends Avenger2
+{
+
+}
+
+let ah=new AvengerHeredado("heredado");
+console.log("clase heredada: " + ah.nombre);
+
+
+//Herencia2
+class AvengerHeredado2 extends Avenger2{
+    edad:number=0;
+    constructor(nombre:string,edad:number){
+        super(nombre);
+        this.edad=edad;
+    }
+}
+
+let ah2:AvengerHeredado2=new AvengerHeredado2("heredado2",22);
+console.log("clase heredado 2: " + ah2.edad + " " + ah2.nombre)  ;
+
+//Namespace
+namespace Funciones{
+    export function f1(){
+        console.log("yo soy la f1");
+    }
+    export function f2(){
+        console.log("yo soy la f2");
+    }
+}
+
+Funciones.f1();
+Funciones.f2();
+
+
+//Instalar jquery para usar con ts  ->  npm install --save @types/jquerys
+$(function(){
+    console.log("ready");
+})
