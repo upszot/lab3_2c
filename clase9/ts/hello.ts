@@ -182,7 +182,8 @@ Funciones.f1();
 Funciones.f2();
 
 
-//Instalar jquery para usar con ts  ->  npm install --save @types/jquerys
+//Instalar jquery para usar con ts  ->  npm install --save @types/jquery
+//despues instalar jquery -> npm i jquery
 $(function(){
     console.log("ready");
 })
