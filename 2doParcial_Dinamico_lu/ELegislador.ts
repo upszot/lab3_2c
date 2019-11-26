@@ -1,0 +1,4 @@
+enum ETipo {
+   diputado,
+   senador, 
+}
