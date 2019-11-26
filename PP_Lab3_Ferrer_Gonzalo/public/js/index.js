@@ -30,30 +30,6 @@ function manejadorModificar(e)
 }
 
 
-function cargarDatos()
-{
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-
-        if (xhr.readyState == 4 && xhr.status == 200) 
-        {
-            let objetos=JSON.parse(xhr.responseText)
-
-            document.getElementById("divTabla").innerText='';
-            document.getElementById("divTabla").appendChild(crearTabla(objetos.data));
-            let tds=document.getElementsByTagName('td');
-            for(var i=0;i<tds.length;i++)
-            {
-                let td=tds[i];
-                td.addEventListener('click',setvalues);               
-            }
-        }       
-    };
-    //Envio la peticion get
-    var url = "http://localhost:3000/traerAnuncios";
-    xhr.open("GET", url, true);
-    xhr.send();
-}
 
 function altaAnuncio(anuncio) {
     var xhr = new XMLHttpRequest();
@@ -69,6 +45,7 @@ function altaAnuncio(anuncio) {
     xhr.setRequestHeader('Content-Type','application/json')
     xhr.send(JSON.stringify(anuncio));
 }
+
 
 function borrarAnuncio() 
 {
@@ -91,7 +68,7 @@ function borrarAnuncio()
 }
 
 function setvalues(e)
-{//id,titulo,transaccion,descripcion,precio,num_wc,num_estacionamiento,num_dormitorio;
+{//id, descripcion, num_dormitorio, num_estacionamiento, num_wc, precio, titulo, transaccion,moneda;
     let tr=e.target.parentElement;
     let nodos=tr.childNodes;
     document.getElementById("idAnuncio").value=nodos[0].innerText;
@@ -112,6 +89,18 @@ function setvalues(e)
     document.getElementById("num_wc").value=nodos[5].innerText;
     document.getElementById("num_estacionamiento").value=nodos[6].innerText;
     document.getElementById("num_dormitorio").value=nodos[7].innerText;
+    // document.getElementById("moneda").value=nodos[8].innerText;
+    
+    if(nodos[4].innerText.substr(0,3)=="USD")
+    {
+        document.getElementById("moneda").selectedIndex = "1";
+    }else
+    {
+        document.getElementById("moneda").selectedIndex = "2";
+    }
+
+    
+    // cadena.substr(inicio[, longitud])
 
     document.getElementById("btncrearModificar").innerText = "Modificar";
     document.getElementById("btnBorrar").hidden = false;
@@ -128,10 +117,10 @@ function limpiarvalues()
     document.getElementById("num_estacionamiento").value='';
     document.getElementById("num_wc").value='';
     document.getElementById("precio").value='';
+    document.getElementById("moneda").value='';
     
     document.getElementById("btncrearModificar").innerText='Alta';
     document.getElementById("btnBorrar").hidden=true;
-
 }
 
 function obtenerAnuncio(frm,tieneID)
@@ -144,7 +133,8 @@ function obtenerAnuncio(frm,tieneID)
     let precio;
     let titulo
     let transaccion;
-    
+    let moneda;
+
     console.log(frm);
     for (elemento of frm.elements)    
     {
@@ -182,10 +172,14 @@ function obtenerAnuncio(frm,tieneID)
                 {
                     transaccion=elemento.value;
                 }
+                break;                
+                case "Moneda":
+                    console.log(elemento.value.substr(4,));                    
+                    moneda=elemento.value;
                 break;
         }
-    }
-    return new Anuncio(id, descripcion, num_dormitorio, num_estacionamiento, num_wc, precio, titulo, transaccion);
+    }    
+    return new Anuncio(id, descripcion, num_dormitorio, num_estacionamiento, num_wc, precio, titulo, transaccion,moneda);
 }
 
 function obtenerId(frm)

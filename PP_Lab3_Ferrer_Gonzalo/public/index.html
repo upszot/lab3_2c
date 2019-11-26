@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/Anuncio.js"></script>
     <script src="./js/tableHelper.js"></script>
+    <script src="./js/llamadas.js"></script>
     <script src="./js/index.js"></script>
     <title>Bienes Raices</title>
 </head>
@@ -54,10 +55,21 @@
                     <input type="radio" name="transaccion" id="rdVenta" value="Venta">           
                 </div>
             </div>
+            
+            <div>
+                <select name="Moneda" id="selMoneda">
+                    <option value="USD">USD Dolar Americano</option>
+                    <option value="ARS">ARS Peso Argentino</option>
+                </select>
+            </div>
+
             <div>
                 <button type="submit" name=crearModificar id=btncrearModificar>Alta</button>
                 <button id=btnBorrar  name=Borrar hidden>Borrar</button>
             </div>
+            
+
+
         </fieldset>
     </form>
     <div id="divTabla"></div>

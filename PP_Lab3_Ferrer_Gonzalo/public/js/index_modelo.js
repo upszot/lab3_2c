@@ -58,12 +58,9 @@ function obtenerAnuncio(frm, tieneId) {
                     datos.push(-1);
                 }
                 break;
-            case "Moneda":                
-                datos.push(element.value);                
-                break;
         }
     }
-    // console.log(datos);
+    console.log(datos);
     //return new Anuncio(id, titulo, descripcion, precio, transaccion, num_wc, num_estacionamiento, num_dormitorio);
     return new Anuncio(datos[0],datos[1],datos[2],datos[3],datos[4],datos[5],datos[6],datos[7],datos[8]);
 }
@@ -78,38 +75,6 @@ function obtenerId(frm) {
     }    
 }
 
-function altaAnuncio(anuncio) {
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            traerAnuncios();
-        }
-    }
-    xhr.open('POST', 'http://localhost:3000/altaAnuncio', true);
-    xhr.setRequestHeader('Content-type', 'application/json');
-    xhr.send(JSON.stringify(anuncio));
-}
-
-function traerAnuncios() {
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-
-
-            let objetos = JSON.parse(xhr.responseText);
-            document.getElementById("divTabla").innerText = "";
-            document.getElementById("divTabla").appendChild(crearTabla(objetos.data));
-            let tds = document.getElementsByTagName("td");
-            for (var i = 0; i < tds.length; i++) {
-                let td = tds[i];
-                td.addEventListener('click', setValues);
-            }
-        }
-
-    }
-    xhr.open('GET', "http://localhost:3000/traerAnuncios", true);
-    xhr.send();
-}
 
 function setValues(e) {
     let tr = e.target.parentElement;
@@ -129,7 +94,6 @@ function setValues(e) {
     document.getElementById("num_wc").value = nodos[5].innerText;
     document.getElementById("num_estacionamiento").value = nodos[6].innerText;
     document.getElementById("num_dormitorio").value = nodos[7].innerText;
-    // document.getElementById("Moneda").value = nodos[8].innerText;
 
     document.getElementById("btnCrearModificar").innerText = "Modificar";
     document.getElementById("btnBorrar").hidden = false;
@@ -151,39 +115,8 @@ function limpiarValues() {
     document.getElementById("num_estacionamiento").value = "";
     document.getElementById("transaccionVenta").checked = false;
     document.getElementById("transaccionAlquiler").checked = false;
-    document.getElementById("Moneda").value="";
+
 
     document.getElementById("btnCrearModificar").innerText = "Crear";
     document.getElementById("btnBorrar").hidden = true;
-}
-
-function modificarAnuncio(anuncio) {
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            traerAnuncios();
-            limpiarValues();
-            frm.removeEventListener('submit', manejadorModificar);
-            frm.addEventListener('submit', manejadorSubmit);
-        }
-    }
-    xhr.open('POST', 'http://localhost:3000/modificarAnuncio', true);
-    xhr.setRequestHeader('Content-type', 'application/json');
-    anuncio.active = true;
-    xhr.send(JSON.stringify(anuncio));
-}
-
-function borrarAnuncio() {
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            traerAnuncios();
-            limpiarValues();
-            frm.removeEventListener('submit', manejadorModificar);
-            frm.addEventListener('submit', manejadorSubmit);
-        }
-    }
-    xhr.open('POST', 'http://localhost:3000/bajaAnuncio', true);
-    xhr.setRequestHeader('Content-type', 'Application/x-www-form-urlencoded');    
-    xhr.send(obtenerId(frm));
 }
