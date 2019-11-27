@@ -1,0 +1,39 @@
+
+
+.botonmostrar{
+
+    background: aqua;
+
+}
+
+.botoneliminar{
+
+    background: red;
+
+}
+
+.botonmodificar{
+
+    background: green;
+
+}
+.botonguardar{
+
+    background: burlywood;
+    padding: 10px 50px;
+}
+
+.fieldset{
+    background:honeydew;
+    margin: 0px 200px;
+}
+.anuncio{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pieAnuncio{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 600px;
+}

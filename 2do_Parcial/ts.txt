@@ -1,0 +1,138 @@
+
+let mensaje:string | number;
+mensaje="hola mundo";
+
+console.log(mensaje);
+
+
+//Array
+let vector:number[] = [1,2,3,4,5];
+
+//tupla
+let tupla:[number,string]=[1,"asd"];
+
+
+//enum
+enum Eheroe{
+    xmen,
+    avenger
+}
+
+console.log(Eheroe[3]);
+
+//funciones
+let funcionEnviarMision = function(heroe:string="spiderman"):string{
+    return heroe + "enviado";
+}
+
+let asdasda =  funcionEnviarMision();
+console.log(asdasda);
+
+
+let funcionEnviarMision2 = function (...heroes:string[]):void {
+    for(let i=0; i<heroes.length;i++){
+        console.log(heroes[i] + " enviado");
+    }
+}
+
+funcionEnviarMision2("asdasd","tu vieja", "asdasdsd");
+
+let funcionEnviarMision3 = (heroe:string="heroe"):string=>{
+    return heroe + "enviado a mision 3";
+}
+console.log("FUNCION MISION3");
+console.log(funcionEnviarMision3("Hulk"));
+
+let flash:{nombre:string,edad:number,poderes:string[],getNombre:()=>string} =
+{
+    nombre:"batman",
+    edad:24,
+    poderes:["corre","viaja en eltiempo"],
+    getNombre(){
+        return this.nombre;
+    }
+}
+
+// tipo personalizado
+type Heroe = {nombre:string,edad:number,poderes:string[],getNombre:()=>string};
+
+let ironman:Heroe = {nombre:"alejandro",edad:24,poderes:["vuela"],getNombre:function(){ return this.nombre; }}
+console.log( ironman.getNombre() );
+
+
+//interfaces
+interface Iheroe{
+    nombre :string,
+    poder?:string,
+    mostrar?():string
+}
+
+let wolvering:Iheroe={
+    nombre:"james",
+}
+
+//interface e n clases
+class Avenger implements Iheroe{
+
+    nombre:string = "un avenger";
+    constructor(nombre:string){
+        this.nombre=nombre;
+    }
+}
+
+let unAvenger = new Avenger("El puto amo");
+
+console.log("avenger:  " + unAvenger.nombre);
+
+class avenger3{
+    private nombre:string="un avenger";
+    private edad:number=0;
+
+    constructor(nombre:string){
+        this.nombre=nombre;
+        
+    }
+
+    get Edad():number{
+        return this.edad;
+    }
+    set Edad(e:number){this.edad = e;}
+
+    public mostrar=()=>this.nombre;
+
+}
+
+let av3= new avenger3("ironman");
+ av3.Edad=25;
+console.log(av3);
+
+class xmen{
+    static nombre_de_clase = "xmen";
+}
+
+console.log("atributo estatica " + xmen.nombre_de_clase);
+
+class AvengerHeredado extends avenger3{
+
+}
+
+let ah= new AvengerHeredado("asd");
+
+
+//Namespaces
+namespace funciones{
+
+    export function f1(){
+        console.log("yo soy f1");
+    }
+    export function f2(){
+        console.log("yo soy f2");
+    }
+}
+
+funciones.f1();
+window.addEventListener("load",()=>{
+    $("#asd").click(()=>{
+        console.log("AAAHHHHH");
+    });
+})
